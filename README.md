@@ -99,7 +99,11 @@ RegisterNumber: 212224040316
 
 ## Output:
 
+California Housing Dataset:
+
 ![Screenshot 2025-03-30 180519](https://github.com/user-attachments/assets/8d93162b-6df7-4ef4-80cb-3a23298f0222)
+
+Value of MSE and Predicted Values of Y:
 
 ![Screenshot 2025-03-30 180530](https://github.com/user-attachments/assets/acb55be5-6210-4300-b7ab-734f8a9b7ef2)
 
