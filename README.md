@@ -52,22 +52,23 @@ df=pd.DataFrame(dataset.data,columns=dataset.feature_names)
 df['HousingPrice']=dataset.target
 print(df.head())
 
-# use the first 3 features as inputs
-X= df.drop(columns=['AveOccup','HousingPrice']) #data[:,:3] #Features: 'MedInc', 'HouseAge', 'AveRooms'
-#Use 'medHouseVal' and 'Aveoccup' as output variables
-Y=df[['AveOccup','HousingPrice']]  #np.column_stack((data.target,data.data[:,6]))  #Targets:'MedHouseVal', 'AveOccup'
+# Use the first 3 features as inputs
+X = df.drop(columns=['AveOccup', 'HousingPrice'])  # Features: 'MedInc', 'HouseAge', 'AveRooms'
 
-#split the data into training and testing sets
-X_train, X_test, Y_train, Y_test= train_test_split(X,Y,test_size=0.2,random_state=42)
+# Use 'AveOccup' and 'HousingPrice' as output variables
+Y = df[['AveOccup', 'HousingPrice']]  # Targets: 'AveOccup', 'HousingPrice'
 
-#scale the features and target variables
-scaler_X=StandardScaler()
-scaler_Y=StandardScaler()
+# Split the data into training and testing sets
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
 
-X_train=scaler_X.fit_transform(X_train)
-X_test=scaler_X.transform(X_test)
-Y_train=scaler_Y.fit_transform(Y_train)
-Y_test=scaler_Y.transform(Y_test)
+# Scale the features and target variables
+scaler_X = StandardScaler()
+scaler_Y = StandardScaler()
+
+X_train = scaler_X.fit_transform(X_train)
+X_test = scaler_X.transform(X_test)
+Y_train = scaler_Y.fit_transform(Y_train)
+Y_test = scaler_Y.transform(Y_test)
 
 #initialize the SGDRegressor
 sgd=SGDRegressor(max_iter=1000, tol=1e-3)
